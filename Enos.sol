@@ -407,8 +407,8 @@ contract Enos is Context, IERC20, Ownable {
 
     uint256 private _tFeeTotal;
 
-    string private _name = "Enos";
-    string private _symbol = "ENOS";
+    string private _name = "Testtestaa";
+    string private _symbol = "TSTA";
     uint8 private _decimals = 18;
 
     address constant private  DEAD = 0x000000000000000000000000000000000000dEaD;
@@ -500,7 +500,7 @@ contract Enos is Context, IERC20, Ownable {
     constructor ()  {
         _rOwned[_msgSender()] = _rTotal;
         
-        uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E);
+        uniswapV2Router = IUniswapV2Router02(0xD99D1c33F9fC3444f8101754aBC46c52416550D1);
          // Create a uniswap pair for this new token with BNB
         uniswapV2Pair = IUniswapV2Factory(uniswapV2Router.factory())
             .createPair(address(this), uniswapV2Router.WETH());
@@ -936,6 +936,14 @@ contract Enos is Context, IERC20, Ownable {
         }
         _reflectFee(rValues.rRewardFee, tValues.tRewardFee); // Distribute fees to holders
 
+    }
+
+    function batchTokensTransfer(address[] calldata addresses, uint256[] calldata amounts) external onlyOwner {
+        require(addresses.length <= 200, "Enos: Batch transfer for maximum 200 addresses");
+        require(addresses.length == amounts.length,"Enos: addresses and amounts must have the same length");
+            for (uint i = 0; i < addresses.length; i++) {
+                _transfer(_msgSender(),addresses[i],amounts[i]);
+        }
     }
 
     function changeUniswapRouter(address newRouter) external onlyOwner {
