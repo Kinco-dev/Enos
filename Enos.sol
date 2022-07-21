@@ -6,8 +6,8 @@ pragma solidity ^0.8.15;
  * Tokenomics:
  *  Max Supply: 100,000,000,000
  *  Decimals: 18
- *  Token Name: Enios
- *  Symbol: ENIOS
+ *  Token Name: Enos
+ *  Symbol: ENOS
  * 
  * 
  * Buy Tax 7% :            Sell Tax 12% :
