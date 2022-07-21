@@ -407,8 +407,8 @@ contract Enos is Context, IERC20, Ownable {
 
     uint256 private _tFeeTotal;
 
-    string private _name = "Testtestaa";
-    string private _symbol = "TSTA";
+   string private _name = "Enos";
+    string private _symbol = "ENOS";
     uint8 private _decimals = 18;
 
     address constant private  DEAD = 0x000000000000000000000000000000000000dEaD;
@@ -500,7 +500,7 @@ contract Enos is Context, IERC20, Ownable {
     constructor ()  {
         _rOwned[_msgSender()] = _rTotal;
         
-        uniswapV2Router = IUniswapV2Router02(0xD99D1c33F9fC3444f8101754aBC46c52416550D1);
+        uniswapV2Router = IUniswapV2Router02(0x10ED43C718714eb63d5aA57B78B54704E256024E);
          // Create a uniswap pair for this new token with BNB
         uniswapV2Pair = IUniswapV2Factory(uniswapV2Router.factory())
             .createPair(address(this), uniswapV2Router.WETH());
